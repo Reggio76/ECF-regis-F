@@ -1,0 +1,169 @@
+/* TODO */
+body{
+  background-color:#212529;
+
+}
+
+main {
+  background-color: #f1f1f1;
+
+  padding :25px;
+}
+
+.banniere img{
+ width:100%;
+ height: 180px;
+}
+
+#filtreDiv{
+margin :25px 0;
+width:200px;
+}
+#filtreDiv label{
+  margin-bottom :10px;
+
+  }
+.btnFilm{
+  padding:8px 20px;
+}
+
+ h2, #ajouterFilm {
+  margin: 25px 0;
+}
+
+.row {
+  align-items: flex-end; 
+}
+.col-md:nth-child(1) {
+  padding-left: 0;
+
+}
+.col-md:nth-child(4) {
+  padding-Right: 0;
+  display: flex;
+  justify-content: flex-end;
+
+ }
+
+form {
+  
+  width: 100%;
+}
+
+small {
+  display:none;
+  color:red;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.table-responsive {
+  margin-top: 25px;
+}
+
+
+@media screen and (min-width:1280px){
+  .container{
+    padding:0 55px; 
+  
+  }
+}
+
+@media screen and (max-width:991px){
+.navbar-toggler, .navbar button{
+  margin: 5px 0 15px -10px;
+}
+}
+@media screen and (max-width:767px){
+  .col-md{
+    padding:0
+  }
+  .col-md:nth-child(4) {
+    padding-Right: 0;
+    display: block;
+    margin-top: 10px;
+  
+   }
+}
+.pagination {
+  margin: 35px 0;
+}
+#bottombar{
+
+  margin-top: 85px;
+  background-color:  #212529 ;
+  color:#f1f1f1;
+  display:flex;
+  justify-content:space-evenly;
+  text-align: center;
+  align-items: flex-end;
+
+}
+
+
+.strong {
+  padding: 9px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#bottombar li {
+  font-size: 12px;
+  list-style: none;
+}
+
+@media screen and (max-width:640px) {
+
+#bottombar{
+  margin-top: 10px;
+    display:block;
+ 
+  }
+  .pagination {
+    margin:15px 0;
+  }
+ 
+}
+
+ /*page recherche */
+
+#reponse, .posterFilm {
+
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+#reponse {
+ 
+  padding-top:35px;
+  flex-wrap: wrap;
+  gap : 10px;
+  justify-content:space-evenly;
+}
+
+.posterFilm {
+  gap : 5px;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.posterFilm h5 {
+  margin-top: 7px;
+ max-width: 250px;
+ text-align: center;
+}
+
+.posterFilm img{
+ 
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+}
+
+.pagination {
+ margin:0;
+ display:flex;
+ flex-direction: row;
+ flex-wrap: wrap !important;
+}

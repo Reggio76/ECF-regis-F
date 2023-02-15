@@ -52,7 +52,11 @@ form {
 
 small {
   display:none;
-  color:red;
+  color:rgb(79, 77, 77);
+}
+.erreur {
+  color :red;
+  font-weight: bold;
 }
 .hidden {
   visibility: hidden;

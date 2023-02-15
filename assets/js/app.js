@@ -15,29 +15,44 @@ const selectTri = document.querySelector("#filtre");
 
 //on affiche les données du tableau filmsTab via la fonction afficherListe
 afficherListe(filmsTab);
-ajouter.addEventListener("click", () => {
+ajouter.addEventListener("click", (e) => {
   ajouterFilm.classList.remove("hidden");
+  e.preventDefault();
+  //on efface les messages d'erreurs
+  effacerMssErr();
+  // on efface les anciens inputs
+  const inputs = document.querySelectorAll("input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
 });
 
 const enregistrer = document.querySelector("#enregistrer");
 enregistrer.addEventListener("click", (e) => {
   e.preventDefault();
+
   ajouterFilm.classList.remove("add");
   const nomFilm = document.querySelector("#nomFilm").value;
   const annee = document.querySelector("#annee").value * 1;
   const nomReal = document.querySelector("#nomReal").value;
-  const messageErrs = document.querySelectorAll("#ajouterFilm small");
+  const messageErrs1 = document.querySelector("#small1");
+  const messageErrs2 = document.querySelector("#small2");
+  const messageErrs3 = document.querySelector("#small3");
   // verification entrée film
-  if (
-    motLenght(nomFilm) < 2 ||
-    annee < 1900 ||
-    annee > anneeCourante() ||
-    motLenght(nomReal) < 5
-  ) {
-    //si erreur, on affiche les small sous les input avec message
-    messageErrs.forEach((messageErr) => {
-      messageErr.style.display = "block";
-    });
+  //si erreur, on affiche les small sous les input avec message
+  //et selon l'erreur on met le message en gras et rouge
+  if (motLenght(nomFilm) < 2) {
+    afficherMssErr();
+    messageErrs1.classList.add("erreur");
+  }
+  if (annee < 1900 || annee > anneeCourante()) {
+    afficherMssErr();
+    messageErrs2.classList.add("erreur");
+  }
+  if (motLenght(nomReal) < 5) {
+    afficherMssErr();
+    messageErrs3.classList.add("erreur");
+
     //sinon on ajoute le nouvel objet dans le tableau filmsTab
   } else {
     filmsTab.push({
@@ -53,6 +68,23 @@ enregistrer.addEventListener("click", (e) => {
   }
 });
 
+//fonction pour afficher les message d'erreur
+function afficherMssErr() {
+  const messageErrs = document.querySelectorAll("#ajouterFilm small");
+
+  messageErrs.forEach((messageErr) => {
+    messageErr.style.display = "block";
+  });
+}
+
+//fonction pour effacer les message d'erreur
+function effacerMssErr() {
+  const messageErrs = document.querySelectorAll("#ajouterFilm small");
+
+  messageErrs.forEach((messageErr) => {
+    messageErr.style.display = "none";
+  });
+}
 //fonction qui retourne la premiere lettre du nom en majuscule
 function majuscPrem(nom) {
   return nom[0].toUpperCase() + nom.slice(1);

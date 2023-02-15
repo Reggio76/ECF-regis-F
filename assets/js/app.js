@@ -44,12 +44,10 @@ enregistrer.addEventListener("click", (e) => {
   if (motLenght(nomFilm) < 2) {
     afficherMssErr();
     messageErrs1.classList.add("erreur");
-  }
-  if (annee < 1900 || annee > anneeCourante()) {
+  } else if (annee < 1900 || annee > anneeCourante()) {
     afficherMssErr();
     messageErrs2.classList.add("erreur");
-  }
-  if (motLenght(nomReal) < 5) {
+  } else if (motLenght(nomReal) < 5) {
     afficherMssErr();
     messageErrs3.classList.add("erreur");
 
